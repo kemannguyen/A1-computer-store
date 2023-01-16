@@ -9,6 +9,6 @@ The user can use the earned money to buy a computer from the store's selection.
 # Built With
 The projects was developed by using 
 * [Bootstrap](https://getbootstrap.com/)
-* [Visual Studio Code](code.visualstudio.com)
+* [Visual Studio Code](https://code.visualstudio.com/)
 
 Author Keman Nguyen
