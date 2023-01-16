@@ -48,7 +48,7 @@ function payBank(debt, currBalance, payBalance, payBtnElement){
     //if paybalance is greater than debt, transfer it to bank 
     if(debt<=0){
         debt *=-1;
-        currentBalance += debt;
+        currBalance += debt;
         debt = 0;
         payBtnElement.disabled = true;
     }
