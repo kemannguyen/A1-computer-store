@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="design.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    
+</head>
+<body>
+    <header>
+        <h1 id="storeName">Computer store</h1>
+    </header>
+            <main>
+                    <customdiv>
+                        <h3><b>Bank</b></h3>
+                        <p id="currBalance">Balance:  0 kr</p>
+                        <text id="currDebt">Debt: 0 kr</text>
+                        <div class="bottom">
+                            <buttondiv>
+                                <button type = "button" class="btn btn-success" id="loanBtn">Get a loan</button>        
+                            </buttondiv>    
+                        </div>
+                    </customdiv>
+                    <customdiv2>                
+                        <h3><b>Work</b></h3>
+                        <text id="pay">Pay:  0 kr</text>
+                        
+                        <div class="bottom">
+                            <buttondiv>
+                                <button type = "button" class="btn btn-primary" id="workBtn">work</button>
+                                <button type = "button" class="btn btn-secondary" id="bankBtn">Bank</button>
+                                <button type = "button" class="btn btn-warning" id="payBankBtn"  disabled>Pay bank</button>
+                            </buttondiv>
+                        </div>
+                    </customdiv2>
+                    <customdiv3>
+                        <h3><b>Computers</b></h3>
+                        <select name="computers" id="computers">
+                        </select>
+                        <h6><b>Features</b></h6>
+                        <lt>
+                            <ul id="specs">
+                                <li>Has a screen</li>
+                                <li>Keyboard works, mostly</li>
+                                <li>32MB Ram (Not upgradable)</li>
+                                <li>6GB Hard Disk</li>
+                                <li>Comes with Floppy Disk Reader (Free) - Requires cable</li>
+                                <li>Good exercise to carry</li>
+                            </ul>
+                        </lt>
+                    </customdiv3>
+            </main>
+        </div>
+    </div>
+    <footer>   
+            <compdiv>
+                <divleftside>
+                    <img id = "img" width="130" height="130"
+                    src = "https://hickory-quilled-actress.glitch.me/assets/images/1.png"/>
+                </divleftside>
+                <divleftside> 
+                    <h3 id="compname"><b>Classic Notebook</b></h3>
+                    <h4></h4>
+                    <text id="description">A little old, but turns on.</text>
+                </divleftside>
+                <divrightside>
+                    <h3><b>Price: </b> 
+                        <text id="price"> 200 kr</text>
+                    </h3>
+                    
+                    <button class="btn btn-success" id="buyBtn">BUY NOW </button>
+                </divrightside>
+            </compdiv>
+        </div>
+    </footer>
+    <script src="app.js" type ="module"></script>
+</body>
+</html>
