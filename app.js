@@ -127,19 +127,20 @@ const handleComputerSelection = e =>{
 
     fetch(imageElement.src = baseURL+selectedComputer.image)
         .then(async response => {
-            
-            if(response.ok){
-                imageElement.src = baseURL+selectedComputer.image;
-            }
             if(!response.ok)
             {
                 const error = (data && data.message) || response.status;
                 return Promise.reject(error);
             }
+            if(response.ok){
+                imageElement.src = baseURL+selectedComputer.image;
+            }
+            
         })
         .catch(error =>{
             imageElement.src = "https://hickory-quilled-actress.glitch.me/assets/images/5.png";
         });
+    
     
     //imageElement.src = baseURL+selectedComputer.image;
     

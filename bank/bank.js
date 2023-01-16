@@ -27,12 +27,9 @@ function getLoan(currBalance, debt, payBtnElement) {
     }
 }
 
-function getBalance(){
-    return currentBalance;
-}
-function getDebt(){
-    return currentDebt;
-}
+//return values 
+const getBalance = () => currentBalance;
+const getDebt = () => currentDebt;
 
 const bankInfo = {
     currentBalance,
@@ -43,3 +40,4 @@ const bankInfo = {
 }
 
 export default bankInfo
+

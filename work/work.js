@@ -48,7 +48,7 @@ function payBank(debt, currBalance, payBalance, payBtnElement){
     //if paybalance is greater than debt, transfer it to bank 
     if(debt<=0){
         debt *=-1;
-        currBalance += debt;
+        currentBalance += debt;
         debt = 0;
         payBtnElement.disabled = true;
     }
@@ -58,15 +58,11 @@ function payBank(debt, currBalance, payBalance, payBtnElement){
     currentPayBalance = payBalance;
 }
 
-function getBalance(){
-    return currentBalance;
-}
-function getDebt(){
-    return currentDebt;
-}
-function getPayBalance(){
-    return currentPayBalance;
-}
+//return values
+const getBalance = () => currentBalance;
+const getDebt = () => currentDebt;
+const getPayBalance = () => currentPayBalance;
+
 const workManager = {
     currentBalance,
     currentDebt,

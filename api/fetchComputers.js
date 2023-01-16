@@ -1,6 +1,6 @@
 async function fetchComputers() {
     try {
-        const postsResponse = await fetch("https://hickory-quilled-actress.glitch.me/computers")
+        const postsResponse = await fetch('https://hickory-quilled-actress.glitch.me/computers')
         const posts = await postsResponse.json()
         return posts
     } catch (error) {
