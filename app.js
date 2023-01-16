@@ -1,3 +1,6 @@
+import bankInfo from "./bank/bank.js";
+import workManager from "./work/work.js";
+
 const balanceElement = document.getElementById("currBalance");
 const debtsElement = document.getElementById("currDebt");
 const payElement = document.getElementById("pay");
@@ -20,99 +23,41 @@ function updateNumbers() {
 //-------------------------------------------------------------------------------
 //BANK SECTION
 
-//request and handles loan
-function getLoan() {
-    //Initiate max allowed loan
-    const maxLoanAmount = currentBalance * 2;
-
-    //only open the loan window if you don't have previous debt    
-    if(debt == 0)
-    {
-        let loanInput = parseInt(window.prompt("Enter loan amount"));
-        
-        //acceptt the loan if the request isn't more than twice the amount of balance
-        if(loanInput <= maxLoanAmount)
-        {
-            debt+= loanInput;
-            currentBalance += loanInput;
-            updateNumbers();
-            payBtnElement.disabled = false;
-        }
-    }
-}
-
 //handles action when "loan" button is pressed
 loanBtnElement.addEventListener("click", () => {
-    getLoan()
+    bankInfo.getLoan(currentBalance, debt, payBtnElement);
+    currentBalance = bankInfo.getBalance();
+    debt = bankInfo.getDebt();
+    updateNumbers();
 })
 
 
 //---------------------------------------------------------------------------------
 //WORK SECTION
 
-//add 100 to the pay balance
-function work() {
-    payBalance+=100;
-    payElement.innerText = payBalance;
-    updateNumbers();
-}
-
 //handles action when "work" button is pressed
 workBtnElement.addEventListener("click", () => {
-    work();
-})
-
-//Transfer money and pay debt by 10% of the earned salary if there is an debt
-function transferMoneyToBank() {
-    if(debt > 0)
-    {
-        //checking if the 10% of the transfer is bigger than the debt or not
-        if(debt >= (payBalance/10))
-        {
-            debt -= (payBalance/10);
-            currentBalance += (payBalance*0.9);
-        } else
-        {
-            //see how much money there is left from the paybalance if the 10% of the transfer
-            //is more than the debt
-            debt -= payBalance;
-            debt *=-1;
-            currentBalance += debt;
-            debt = 0;            
-        }
-    }
-    //if no debt all whole pay to bank 
-    else{
-        currentBalance += payBalance;
-        payBtnElement.disabled = true;
-    }
-    payBalance = 0;
+    workManager.work(payBalance);
+    payBalance = workManager.getPayBalance();
     updateNumbers();
-}
+})
 
 //handles action when "bank" button is pressed
 bankBtnElement.addEventListener("click", () => {
-    transferMoneyToBank()
-})
-
-//paying the loan directly
-function payBank(){
-    debt -= payBalance;
-
-    //if paybalance is greater than debt, transfer it to bank 
-    if(debt<=0){
-        debt *=-1;
-        currentBalance += debt;
-        debt = 0;
-        payBtnElement.disabled = true;
-    }
-    payBalance = 0;
+    workManager.transferMoneyToBank(debt, currentBalance, payBalance, payBtnElement);
+    currentBalance = workManager.getBalance();
+    debt = workManager.getDebt();
+    payBalance = workManager.getPayBalance();
     updateNumbers();
-}
+})
 
 //handles action when "pay bank" button is pressed
 payBtnElement.addEventListener("click", () => {
-    payBank()
+    workManager.payBank(debt, currentBalance, payBalance, payBtnElement);
+    currentBalance = workManager.getBalance();
+    debt = workManager.getDebt();
+    payBalance = workManager.getPayBalance();
+    updateNumbers();
 })
 
 
