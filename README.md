@@ -1,4 +1,4 @@
-# A1-computer-store
+# A1 computer store
 
 This project is an computer store where the user can work and earn up money, 
 transfer the earned money to a bank, take loans from the bank and pay off the bank loan.
