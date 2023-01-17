@@ -1,15 +1,14 @@
-let allComputers = []
+let allComputers = [];
 
-const getComputers = () => [...allComputers]
+const getComputers = () => [...allComputers];
 
 const initializeComputers = (computers) => {
-    allComputers = computers;
-}
+  allComputers = computers;
+};
 
 const postsView = {
-    getComputers,
-    initializeComputers
-}
+  getComputers,
+  initializeComputers,
+};
 
-
-export default postsView
+export default postsView;
